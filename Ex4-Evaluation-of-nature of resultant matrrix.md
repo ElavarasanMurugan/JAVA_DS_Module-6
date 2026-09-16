@@ -100,8 +100,8 @@ public class MatrixNature {
 ```
 ## Output:
 
-![alt text](screenshots/image-4.png)
 
+![alt text](screenshots/image-4.png)
 
 ## Result:
 Thus, the java program to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix is implemented successfully.
