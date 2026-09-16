@@ -25,37 +25,26 @@ RegisterNumber: 212224040083
 ```java
 import java.util.*;
 
-public class MinimumHeartbeat {
-
-    static int findMin(int[] arr, int n) {
-
-        // Base case
-        if (n == 1) {
-            return arr[0];
-        }
-
-        // Recursive call
-        int min = findMin(arr, n - 1);
-
-        // Compare and return minimum
-        return Math.min(arr[n - 1], min);
+public class Main {
+    static int getMin(int[] arr, int i, int n) 
+    {
+        
+        if (i == n - 1)
+            return arr[i];
+        
+        int minRest = getMin(arr, i + 1, n);
+        return Math.min(arr[i], minRest);
+        
     }
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-
         int n = sc.nextInt();
-
-        int[] heartbeat = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            heartbeat[i] = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
         }
-
-        int minimum = findMin(heartbeat, n);
-
-        System.out.println("Minimum heartbeat = " + minimum);
+        System.out.println(getMin(arr, 0, n));
     }
 }
 ```

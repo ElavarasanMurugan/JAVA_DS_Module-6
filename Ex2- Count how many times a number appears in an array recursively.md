@@ -23,45 +23,41 @@ RegisterNumber: 21224040083
 ```
 
 ```java
-import java.util.*;
+import java.util.Scanner;
 
 public class CountOccurrences {
-
-    static int countOccurrences(int[] arr, int n, int target) {
-
-        // Base case
+    public static int countOccurrences(int[] arr, int n, int target) {
         if (n == 0) {
             return 0;
         }
-
-        // Recursive call
-        int count = countOccurrences(arr, n - 1, target);
-
-        // Check current element
         if (arr[n - 1] == target) {
-            count++;
+            return 1 + countOccurrences(arr, n - 1, target);
+        } else {
+            return countOccurrences(arr, n - 1, target);
         }
-
-        return count;
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
 
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-
-        int[] arr = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
+        if (size <= 0) {
+            System.out.println("Invalid array size. Must be positive.");
+            return;
         }
 
-        int target = sc.nextInt();
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
 
-        int result = countOccurrences(arr, n, target);
+        // Input: Target number to count
+        int target = scanner.nextInt();
 
-        System.out.println("Number of occurrences = " + result);
+        int count = countOccurrences(arr, size, target);
+        System.out.println("The number " + target + " appears " + count + " time(s) in the array.");
+
+        scanner.close();
     }
 }
 ```
