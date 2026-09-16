@@ -62,4 +62,5 @@ public class TowerOfHanoi {
 ![alt text](screenshots/image-3.png)
 
 ## Result:
-Thus, the Java program to to count the number of digits in an integer is implemented successfully.
+Thus, the Java program to implement the Tower of Hanoi is successfully completed and executed.
+
